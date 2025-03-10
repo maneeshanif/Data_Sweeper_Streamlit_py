@@ -1,4 +1,3 @@
-# imports 
 import streamlit as st
 import pandas as pd
 import os
@@ -23,8 +22,8 @@ if uploaded_files:
         elif file_ext == ".xlsx":
             df = pd.read_excel(file)
         else:
-             st.error("Unsupported file type : {file_ext}")
-             continue
+            st.error("Unsupported file type : {file_ext}")
+            continue
         
         # Display info about the file 
         st.write(f"**File Name:** {file.name}")
@@ -40,9 +39,9 @@ if uploaded_files:
             col1 ,col2 = st.columns(2)
 
             with col1:     # with us context manager it open the file read it and then close it #
-               if st.button(f"Remove Duplicates from {file.name}"):
-                   df.drop_duplicates(inplace=True)   
-                   st.write("Duplicates Removed!")
+                if st.button(f"Remove Duplicates from {file.name}"):
+                    df.drop_duplicates(inplace=True)   
+                    st.write("Duplicates Removed!")
 
             with col2:
                 if st.button(f"Fill Missing Values for {file.name}"):
